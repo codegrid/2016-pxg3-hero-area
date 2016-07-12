@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>demo</title>
+<style>
+  .box-1,
+  .box-2 {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 350px;
+    height: 200px;
+    line-height: 200px;
+    text-shadow: 0 3px 15px #000;
+  }
+  .box-1 {
+    z-index: 2;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+  }
+  .box-2 {
+    z-index: 1;
+    background-image: linear-gradient(to right, #ff92ed 0, #0082a9 100%);
+  }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('blend')
+    var box1 = document.querySelector('.box-1')
+    select.addEventListener('change', function() {
+      var value = this.value
+      box1.style.mixBlendMode = value
+    }, false)
+  }, false)
+</script>
+</head>
+<body>
+
+<div>
+  <span>mix-blend-modeは</span>
+  <select id="blend">
+    <option value="normal">normal 通常（初期値）</option>
+    <option value="multiply">multiply 乗算</option>
+    <option value="screen">screen スクリーン</option>
+    <option value="overlay">overlay オーバーレイ</option>
+    <option value="darken">darken 比較（暗）</option>
+    <option value="lighten">lighten 比較（明）</option>
+    <option value="color-dodge">color-dodge 覆い焼き</option>
+    <option value="color-burn">color-burn 焼きこみ</option>
+    <option value="hard-light">hard-light ハードライト</option>
+    <option value="soft-light">soft-light ソフトライト</option>
+    <option value="difference">difference 差の絶対値</option>
+    <option value="exclusion">exclusion  除外</option>
+    <option value="hue">hue 色相</option>
+    <option value="saturation">saturation 彩度</option>
+    <option value="color">color カラー</option>
+    <option value="luminosity">luminosity 輝度</option>
+  </select>
+  <span>です</span>
+</div>
+
+<div class="box-1" style="mix-blend-mode: normal;">🍣私のHome Pageにようこそ🍜</div>
+<div class="box-2"></div>
+
+</body>
+</html>
